@@ -1,8 +1,7 @@
-#root{
+#root {
   text-align: center;
-
 }
-.card-wrapper{
+.card-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,10 +19,10 @@
   color: #000;
   margin: 1rem;
   padding: 1rem;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-  .button{
-    background-color: #4CAF50; /* Green */
+  .button {
+    background-color: #4caf50; /* Green */
     border: none;
     color: white;
     padding: 15px 25px;
@@ -37,16 +36,15 @@
     cursor: pointer;
     transition-duration: 0.4s;
 
-    &:hover{
+    &:hover {
       background-color: #3e8e41;
     }
   }
-  .button.active{
+  .button.active {
     background-color: #fc2815;
   }
 
   .image-content {
-
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -59,15 +57,15 @@
       border-radius: 10px;
     }
   }
-    .card-content{
-      width: 50%;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-    }
-    &:hover {
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
+  .card-content {
+    width: 50%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
 }

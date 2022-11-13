@@ -12,14 +12,20 @@ function App(): JSX.Element {
   }, []);
 
   const fetchDataAction = async () => {
-    const data = await fetch("https://rickandmortyapi.com/api/character");
-    const dataJSON = await data.json();
-    return dispatch({
-      type: "FETCH_DATA",
-      payload: dataJSON?.results
-    });
+    const data = await fetch(`https://rickandmortyapi.com/api/character/?page=${state.pageNumber}`) // 42;
+    const dataJSON = await data.json() || [];
+  
+      dispatch({
+        type: "FETCH_DATA",
+        payload: !!state.characters ? [...state.characters, ...dataJSON?.results] : dataJSON?.results  
+      })
+      dispatch({
+        type: "SET_PAGE",
+        payload: 1
+      })
+      
   };
-
+  console.log(state.characters)
   const FavoriteHandler = (id: number) => {
     if (!state.favorites.includes(id)) {
       return dispatch({
@@ -34,7 +40,6 @@ function App(): JSX.Element {
     }
   };
 
-  console.log(state);
   return (
 
     <Fragment>
@@ -62,6 +67,8 @@ function App(): JSX.Element {
           );
         })}
       </section>
+
+      <button type="button" className="button" onClick={fetchDataAction}>Load more</button>
 
     </Fragment>
 

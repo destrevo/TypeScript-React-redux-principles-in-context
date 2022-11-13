@@ -16,6 +16,7 @@ export interface ICharacter {
 export interface IState {
     characters: [],
     favorites: number[]
+    pageNumber: number,
 }
 export interface IAction {
     type: string,

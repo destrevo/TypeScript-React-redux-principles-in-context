@@ -5,17 +5,20 @@ const initialFavorites: number[] = JSON.parse(localStorage.getItem('favorites') 
 
 const initialState: IState = {
     characters: [],
-    favorites: [...initialFavorites]
+    favorites: [...initialFavorites],
+    pageNumber: 1
 };
 
 const reducer = (state: IState, action: IAction) => {
     switch (action.type) {
         case 'FETCH_DATA':
-            return { ...state, characters: action.payload }
+            return { ...state, characters: action.payload };
         case 'ADD_FAV':
             return { ...state, favorites: [...state.favorites, action.payload] }
         case 'REMOVE_FAV':
             return { ...state, favorites: state.favorites.filter((fav: number) => fav !== action.payload) }
+            case 'SET_PAGE':
+                return { ...state, pageNumber: state.pageNumber + action.payload }
         default:
             return state;
     }
